@@ -6,6 +6,12 @@ uname -a
 echo -e "\n################## cat /proc/version ####################"
 cat /proc/version
 
+echo -e "\n################## cat /etc/os-release ##################"
+cat /etc/os-release
+
+echo -e "\n################## ls -l /dev ###########################"
+ls -l /dev
+
 echo -e "\n################## cat /proc/cpuinfo ####################"
 cat /proc/cpuinfo
 
