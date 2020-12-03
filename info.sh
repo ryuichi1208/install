@@ -58,3 +58,9 @@ cat /etc/resolv.conf
 
 echo -e "\n################## cat /etc/nsswitch.conf ###############"
 cat /etc/nsswitch.conf
+
+echo -e "\n################## cat /etc/passwd ######################"
+cat /etc/passwd
+
+echo -e "\n################## cat /etc/group #######################"
+cat /etc/group
