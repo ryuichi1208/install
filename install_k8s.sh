@@ -23,6 +23,7 @@ EOF
 
 # Enable ip_forward
 echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf
+sysctl --system
 
 # Install Docker
 yum install -y yum-utils
@@ -46,3 +47,8 @@ systemctl enable --now kubelet
 
 # Init kubeadm
 kubeadm init --apiserver-advertise-address $(hostname -I | cut -f1 -d' ') --pod-network-cidr 10.240.0.0/16
+mkdir -p $HOME/.kube
+cp /etc/kubernetes/admin.conf $HOME/.kube/config
+
+# Deploy CNI
+kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
