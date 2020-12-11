@@ -1,7 +1,7 @@
 #!/bin/bash
 
+# Update software
 yum update -y
-systemctl reboot -i
 
 # SELinux and Swap off
 setenforce 0
@@ -42,3 +42,6 @@ exclude=kubelet kubeadm kubectl
 EOF
 yum install kubelet kubeadm kubectl --disableexcludes=kubernetes -y
 systemctl enable --now kubelet
+
+# Reboot
+systemctl reboot -i
