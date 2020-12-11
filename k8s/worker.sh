@@ -13,6 +13,7 @@ sed -e "/\/dev\/mapper\/centos-swap/s/^/#/g" /etc/fstab
 
 # Disable Firewalld
 systemctl disable firewalld
+systemctl stop firewalld
 
 # Disable IPv6
 echo "net.ipv6.conf.all.disable_ipv6 = 1" >> /etc/sysctl.conf
