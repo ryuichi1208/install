@@ -6,6 +6,7 @@ yum update -y
 # SELinux and Swap off
 setenforce 0
 swapoff -a
+sed -e "/\/dev\/mapper\/centos-swap/s/^/#/g" /etc/fstab
 
 # Disable Firewalld
 systemctl disable firewalld
@@ -43,5 +44,5 @@ EOF
 yum install kubelet kubeadm kubectl --disableexcludes=kubernetes -y
 systemctl enable --now kubelet
 
-# Reboot
-systemctl reboot -i
+# Init kubeadm
+kubeadm init --apiserver-advertise-address $(hostname -I | cut -f1 -d' ') --pod-network-cidr 10.240.0.0/16
