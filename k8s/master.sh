@@ -56,3 +56,34 @@ cp /etc/kubernetes/admin.conf $HOME/.kube/config
 
 # Deploy CNI
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+
+# Setup tools
+cat <<"EOT" >> ${HOME}/.bash_profile
+
+alias k="kubectl"
+complete -o default -F __start_kubectl k
+EOT
+
+git clone https://github.com/jonmosco/kube-ps1.git ~/.kube-ps1
+cat <<"EOT" >> ~/.bash_profile
+
+source ~/.kube-ps1/kube-ps1.sh
+function get_cluster_short() {
+  echo "$1" | cut -d . -f1
+}
+KUBE_PS1_CLUSTER_FUNCTION=get_cluster_short
+KUBE_PS1_SUFFIX=') '
+PS1='$(kube_ps1)'$PS1
+EOT
+
+git clone https://github.com/ahmetb/kubectx.git ~/.kubectx
+ln -sf ~/.kubectx/completion/kubens.bash /etc/bash_completion.d/kubens
+ln -sf ~/.kubectx/completion/kubectx.bash /etc/bash_completion.d/kubectx
+
+cat <<"EOT" >> ~/.bash_profile
+
+export PATH=~/.kubectx:$PATH
+EOT
+
+curl -L -o /usr/local/bin/stern https://github.com/wercker/stern/releases/download/1.11.0/stern_linux_amd64
+chmod +x /usr/local/bin/stern
