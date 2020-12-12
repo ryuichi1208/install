@@ -4,7 +4,9 @@
 yum update -y
 yum install -y \
   vim \
-  zsh
+  zsh \
+  bash-completion \
+  git
 
 # SELinux and Swap off
 setenforce 0
