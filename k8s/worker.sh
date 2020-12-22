@@ -49,3 +49,5 @@ exclude=kubelet kubeadm kubectl
 EOF
 yum install kubelet kubeadm kubectl --disableexcludes=kubernetes -y
 systemctl enable --now kubelet
+
+reboot
