@@ -4,7 +4,8 @@
 yum update -y
 yum install -y \
   vim \
-  zsh
+  zsh \
+  epel-release
 
 # SELinux and Swap off
 setenforce 0
