@@ -9,4 +9,7 @@ yum install -y \
   wget \
   vim \
   bash-completion \
-  gcc
+  gcc \
+  git \
+  python3 \
+  yum-utils
