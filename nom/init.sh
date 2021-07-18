@@ -20,7 +20,8 @@ yum install -y \
   bind-utils \
   golang \
   the_silver_searcher \
-  nkf
+  nkf \
+  readline-devel
 
 if [[ ! -e /usr/local/bin/fzf ]]; then
   git clone https://github.com/junegunn/fzf.git ~/.fzf
