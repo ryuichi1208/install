@@ -18,3 +18,4 @@ yum install -y \
   jq　　\
   net-tools \
   bind-utils \
+  golang
