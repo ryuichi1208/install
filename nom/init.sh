@@ -19,7 +19,8 @@ yum install -y \
   net-tools \
   bind-utils \
   golang \
-  the_silver_searcher
+  the_silver_searcher \
+  nkf
 
 if [[ ! -e /usr/local/bin/fzf ]]; then
   git clone https://github.com/junegunn/fzf.git ~/.fzf
