@@ -22,7 +22,7 @@ yum install -y \
   the_silver_searcher \
   nkf \
   readline-devel \
-  libsecret
+  libsecret-devel
 
 if [[ ! -e /usr/local/bin/fzf ]]; then
   git clone https://github.com/junegunn/fzf.git ~/.fzf
