@@ -12,4 +12,5 @@ yum install -y \
   gcc \
   git \
   python3 \
-  yum-utils
+  yum-utils \
+  jq
