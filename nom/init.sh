@@ -18,4 +18,5 @@ yum install -y \
   jq　　\
   net-tools \
   bind-utils \
-  golang
+  golang \
+  the_silver_searcher
