@@ -21,6 +21,8 @@ yum install -y \
   golang \
   the_silver_searcher
 
-git clone https://github.com/junegunn/fzf.git ~/.fzf
-yes y | ~/.fzf/install
-mv ~/.fzf/bin/fzf /usr/local/bin/fzf
+if [[ ! -e /usr/local/bin/fzf ]]; then
+  git clone https://github.com/junegunn/fzf.git ~/.fzf
+  yes y | ~/.fzf/install
+  mv ~/.fzf/bin/fzf /usr/local/bin/fzf
+fi
